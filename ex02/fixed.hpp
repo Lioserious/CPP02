@@ -4,8 +4,7 @@
 #include <iostream>
 #include <cmath>
 
-class Fixed
-{
+class Fixed {
 private:
     int                 _value;
     static const int    _fractionalBits = 8;
@@ -21,15 +20,41 @@ public:
     Fixed(const int n);
     Fixed(const float f);
 
+    // Konvertierungsf.
+    float   toFloat(void) const;
+    int     toInt(void) const;
+
     // Getter/Setter
     int     getStoredValue(void) const;
     void    setStoredValue(int const raw);
 
-    // Konvertierungsf.
-    float   toFloat(void) const;
-    int     toInt(void) const;
+    //Vergleichsoperatoren
+    bool    operator>(const Fixed& rhs) const;
+    bool    operator<(const Fixed& rhs) const;
+    bool    operator>=(const Fixed& rhs) const;
+    bool    operator<=(const Fixed& rhs) const;
+    bool    operator==(const Fixed& rhs) const;
+    bool    operator!=(const Fixed& rhs) const;
+
+    //Arithmetische Operatoren
+    Fixed   operator+(const Fixed& rhs) const;
+    Fixed   operator-(const Fixed& rhs) const;
+    Fixed   operator*(const Fixed& rhs) const;
+    Fixed   operator/(const Fixed& rhs) const;
+
+    //  Inkrement/Dekrement
+    Fixed&  operator++(void);           // Pre-increment (++a)
+    Fixed   operator++(int);            // Post-increment (a++)
+    Fixed&  operator--(void);           // Pre-decrement (--a)
+    Fixed   operator--(int);            // Post-decrement (a--)
+
+    //Statische Min/Max Funktionen
+    static Fixed&       min(Fixed& a, Fixed& b);
+    static const Fixed& min(const Fixed& a, const Fixed& b);
+    static Fixed&       max(Fixed& a, Fixed& b);
+    static const Fixed& max(const Fixed& a, const Fixed& b);
 };
-// Operator Overload (außerhalb der Klasse!)
+// Stream Operator
 std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 #endif
