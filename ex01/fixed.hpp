@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed {
 private:
@@ -21,6 +22,12 @@ public:
     // Member functions
     int     getStoredValue(void) const;
     void    setStoredValue(int const raw);
+
+    // Unterschied zu ex00
+    float   toFloat(void) const;
+    int     toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 #endif
