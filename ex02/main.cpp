@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:24 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 14:29:42 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 15:11:44 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 int main(void)
 {
     Fixed       a;
-    Fixed const b(10);
-    Fixed const c(42.42f);
-    Fixed const d(b);
+    Fixed const b(Fixed(5.05f) * Fixed(2));
 
-    a = Fixed(1234.4321f);
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
 
-    std::cout << "a ist " << a << std::endl;
-    std::cout << "b ist " << b << std::endl;
-    std::cout << "c ist " << c << std::endl;
-    std::cout << "d ist " << d << std::endl;
+    std::cout << b << std::endl;
 
-    std::cout << "a ist " << a.toInt() << " als integer" << std::endl;
-    std::cout << "b ist " << b.toInt() << " als integer" << std::endl;
-    std::cout << "c ist " << c.toInt() << " als integer" << std::endl;
-    std::cout << "d ist " << d.toInt() << " als integer" << std::endl;
+    std::cout << Fixed::max(a, b) << std::endl;
 
     return 0;
 }
