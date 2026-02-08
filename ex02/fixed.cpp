@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 13:54:53 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 14:30:06 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Fixed& Fixed::operator=(const Fixed& other)
  */
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor call" << std::endl;
 }
 
 /**
@@ -65,7 +65,7 @@ Fixed::~Fixed()
  */
 Fixed::Fixed(const int n)
 {
-    std::cout << "Int constructor called" << std::endl;
+    std::cout << "Int constructor call" << std::endl;
     this->_value = n << this->_fractionalBits;
 }
 
@@ -80,7 +80,7 @@ Fixed::Fixed(const int n)
  */
 Fixed::Fixed(const float f)
 {
-    std::cout << "Float constructor called" << std::endl;
+    std::cout << "Float constructor call" << std::endl;
     this->_value = roundf(f * (1 << this->_fractionalBits));
 }
 

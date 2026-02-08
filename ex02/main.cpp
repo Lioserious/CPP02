@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:24 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 13:52:27 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 14:29:42 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int main(void)
 
     a = Fixed(1234.4321f);
 
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
+    std::cout << "a ist " << a << std::endl;
+    std::cout << "b ist " << b << std::endl;
+    std::cout << "c ist " << c << std::endl;
+    std::cout << "d ist " << d << std::endl;
 
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << "a ist " << a.toInt() << " als integer" << std::endl;
+    std::cout << "b ist " << b.toInt() << " als integer" << std::endl;
+    std::cout << "c ist " << c.toInt() << " als integer" << std::endl;
+    std::cout << "d ist " << d.toInt() << " als integer" << std::endl;
 
     return 0;
 }
