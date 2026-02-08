@@ -4,7 +4,8 @@
 #include <iostream>
 #include <cmath>
 
-class Fixed {
+class Fixed
+{
 private:
     int                 _value;
     static const int    _fractionalBits = 8;
@@ -27,7 +28,6 @@ public:
     float   toFloat(void) const;
     int     toInt(void) const;
 };
-
 std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 #endif
