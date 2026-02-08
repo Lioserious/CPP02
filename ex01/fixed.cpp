@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 13:48:34 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 13:54:53 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,16 @@
 
 /**
  * Default Constructor
- * 
- * Erstellt ein neues Fixed-Objekt und initialisiert _value mit 0.
- * 
- * Wird aufgerufen bei:
- *   - Fixed a;
- *   - Fixed b = Fixed();
- * 
- * Initialisierungsliste `: _value(0)` setzt den Wert auf 0 BEVOR
- * der Funktionskörper ausgeführt wird.
- * 
- * Ausgabe: "Default constructor call"
+ * Initialisiert _value mit 0
  */
 Fixed::Fixed() : _value(0)
 {
     std::cout << "Default constructor call" << std::endl;
 }
 
-
 /**
  * Copy Constructor
- * 
- * Erstellt ein NEUES Objekt als Kopie eines existierenden Objekts.
- * 
- * Wird aufgerufen bei:
- *   - Fixed b(a);
- *   - Fixed c = a;
- *   - Funktionsaufruf by value: func(Fixed f)
- * 
- * Parameter:
- *   @param other - Referenz auf das zu kopierende Objekt (const = wird nicht verändert)
- * 
- * Implementierung:
- *   - Nutzt den Assignment Operator (*this = other) um Code-Duplikation zu vermeiden
- *   - *this = das neue Objekt selbst
- *   - this = Pointer/Adresse des neuen Objekts
- * 
- * Ausgabe: "Copy constructor call"
+ * Erstellt eine Kopie eines existierenden Objekts
  */
 Fixed::Fixed(const Fixed& other)
 {
@@ -60,29 +33,7 @@ Fixed::Fixed(const Fixed& other)
 
 /**
  * Copy Assignment Operator
- * 
- * Überschreibt ein BEREITS EXISTIERENDES Objekt mit Werten eines anderen.
- * Unterschied zum Copy Constructor: Das Zielobjekt existiert bereits!
- * 
- * Wird aufgerufen bei:
- *   - b = a;  (b existiert schon)
- *   - a = b = c;  (Kettenzuweisung)
- * 
- * Parameter:
- *   @param other - Referenz auf das Quellobjekt (const = wird nicht verändert)
- * 
- * Rückgabe:
- *   @return Fixed& - Referenz auf sich selbst für Kettenzuweisung (a = b = c)
- * 
- * Implementierung:
- *   - Selbstzuweisungsprüfung: if (this != &other)
- *     * this = meine Adresse
- *     * &other = Adresse von other
- *     * Verhindert Probleme bei: a = a;
- *   - Kopiert _value mittels getStoredValue()
- *   - return *this = gibt Referenz auf sich selbst zurück
- * 
- * Ausgabe: "Copy assignment operator call"
+ * Überschreibt ein existierendes Objekt
  */
 Fixed& Fixed::operator=(const Fixed& other)
 {
@@ -96,82 +47,55 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 /**
  * Destructor
- * 
- * Wird AUTOMATISCH aufgerufen wenn ein Objekt "stirbt".
- * Verantwortlich für Aufräumarbeiten (Speicher freigeben, Dateien schließen, etc.)
- * 
- * Wird aufgerufen bei:
- *   - Verlassen des Scopes: { Fixed a; } ← hier am Ende
- *   - delete ptr; (bei dynamisch allokierten Objekten)
- *   - Ende von main()
- * 
- * Reihenfolge:
- *   - Destruktoren werden in UMGEKEHRTER Reihenfolge der Erstellung aufgerufen
- *   - Erstellt: a, b, c → Zerstört: c, b, a
- * 
- * Hier: Keine Aufräumarbeiten nötig (kein dynamischer Speicher),
- *       nur Debug-Ausgabe.
- * 
- * Ausgabe: "Destructor call"
+ * Räumt auf beim Zerstören des Objekts
  */
 Fixed::~Fixed()
 {
-    std::cout << "Destructor call" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
+
 /**
- * getStoredValue - Getter Funktion
+ * Int Constructor - NEU!
  * 
- * Gibt den intern gespeicherten Fixed-Point Wert zurück (nur lesen, nicht ändern).
+ * Konvertiert int zu Fixed-Point
+ * Formel: fixed = int × 2^8
  * 
- * Wird aufgerufen bei:
- *   - int x = a.getStoredValue();
- *   - std::cout << a.getStoredValue();
- *   - other._value = a.getStoredValue();
+ * Beispiel: Fixed(42)
+ *   → _value = 42 << 8 = 42 × 256 = 10752
+ */
+Fixed::Fixed(const int n)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->_value = n << this->_fractionalBits;
+}
+
+/**
+ * Float Constructor - NEU!
  * 
- * Rückgabe:
- *   @return int - Der gespeicherte Wert von _value
+ * Konvertiert float zu Fixed-Point
+ * Formel: fixed = roundf(float × 2^8)
  * 
- * const-Qualifikation:
- *   - `const` am Ende bedeutet: Diese Funktion ändert das Objekt NICHT
- *   - Ermöglicht Aufruf auf const-Objekten: const Fixed a; a.getStoredValue();
- *   - Best Practice: Alle Getter sollten const sein
- * 
- * this->:
- *   - `this` = Pointer auf das aktuelle Objekt
- *   - `this->_value` = Zugriff auf Member (kann auch nur `_value` schreiben)
- * 
- * Ausgabe: "getStoredValue member function call"
+ * Beispiel: Fixed(42.42f)
+ *   → _value = roundf(42.42 × 256) = roundf(10859.52) = 10860
+ */
+Fixed::Fixed(const float f)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->_value = roundf(f * (1 << this->_fractionalBits));
+}
+
+/**
+ * getStoredValue
+ * Gibt den rohen Fixed-Point Wert zurück
  */
 int Fixed::getStoredValue(void) const
 {
-    std::cout << "getStoredValue member function call" << std::endl;
     return this->_value;
 }
+
 /**
- * setStoredValue - Setter Funktion
- * 
- * Setzt den intern gespeicherten Fixed-Point Wert auf einen neuen Wert.
- * 
- * Wird aufgerufen bei:
- *   - a.setStoredValue(42);
- *   - a.setStoredValue(b.getStoredValue());
- * 
- * Parameter:
- *   @param raw - Der neue Wert (int const = kann nicht verändert werden)
- * 
- * Rückgabe:
- *   - void = gibt nichts zurück
- * 
- * NICHT const:
- *   - Diese Funktion ÄNDERT das Objekt (_value wird überschrieben)
- *   - Daher KEIN `const` am Ende
- *   - Kann NICHT auf const-Objekten aufgerufen werden
- * 
- * this->:
- *   - `this->_value` = Mein eigenes Member
- *   - `raw` = Der übergebene Parameter
- * 
- * Keine Ausgabe (nur Wert setzen)
+ * setStoredValue
+ * Setzt den rohen Fixed-Point Wert
  */
 void Fixed::setStoredValue(int const raw)
 {
@@ -179,7 +103,7 @@ void Fixed::setStoredValue(int const raw)
 }
 
 /**
- * toFloat
+ * toFloat - NEU!
  * 
  * Konvertiert Fixed-Point zu float
  * Formel: float = fixed / 2^8
@@ -193,7 +117,7 @@ float Fixed::toFloat(void) const
 }
 
 /**
- * toIn
+ * toInt - NEU!
  * 
  * Konvertiert Fixed-Point zu int
  * Formel: int = fixed / 2^8 (Nachkommastellen abgeschnitten)
@@ -207,7 +131,7 @@ int Fixed::toInt(void) const
 }
 
 /**
- * operator<<
+ * operator<< - NEU!
  * 
  * Ermöglicht: std::cout << fixed_object
  * 
@@ -221,3 +145,4 @@ std::ostream& operator<<(std::ostream& os, const Fixed& f)
     os << f.toFloat();
     return os;
 }
+

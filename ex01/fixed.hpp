@@ -11,23 +11,27 @@ private:
     static const int    _fractionalBits = 8;
 
 public:
-     // Default Constructor
+    // Orthodox Canonical Form
     Fixed();
-    // Copy Constructor
     Fixed(const Fixed& other);
-    // Copy Assignment Operator Ueberschreibt bestehndes object
     Fixed& operator=(const Fixed& other);
-    // Destructor
     ~Fixed();
 
-    // Member functions
+    // Konvertierungs-Constructors
+    Fixed(const int n);
+    Fixed(const float f);
+
+    // Getter/Setter
     int     getStoredValue(void) const;
     void    setStoredValue(int const raw);
 
-    // Unterschied zu ex00
+    // Konvertierungsf.
     float   toFloat(void) const;
     int     toInt(void) const;
 };
+// Operator Overload (außerhalb der Klasse!)
 std::ostream& operator<<(std::ostream& os, const Fixed& f);
+
+#endif
 
 #endif
