@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 12:11:35 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 13:48:34 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,4 +176,48 @@ int Fixed::getStoredValue(void) const
 void Fixed::setStoredValue(int const raw)
 {
     this->_value = raw;
+}
+
+/**
+ * toFloat
+ * 
+ * Konvertiert Fixed-Point zu float
+ * Formel: float = fixed / 2^8
+ * 
+ * Beispiel: _value = 10860
+ *   → return 10860 / 256.0 = 42.421875
+ */
+float Fixed::toFloat(void) const
+{
+    return (float)this->_value / (1 << this->_fractionalBits);
+}
+
+/**
+ * toIn
+ * 
+ * Konvertiert Fixed-Point zu int
+ * Formel: int = fixed / 2^8 (Nachkommastellen abgeschnitten)
+ * 
+ * Beispiel: _value = 10860
+ *   → return 10860 >> 8 = 42
+ */
+int Fixed::toInt(void) const
+{
+    return this->_value >> this->_fractionalBits;
+}
+
+/**
+ * operator<<
+ * 
+ * Ermöglicht: std::cout << fixed_object
+ * 
+ * Gibt den Fixed-Point Wert als Float aus
+ * 
+ * Beispiel: Fixed a(42.42f);
+ *           std::cout << a;  // Ausgabe: 42.4219
+ */
+std::ostream& operator<<(std::ostream& os, const Fixed& f)
+{
+    os << f.toFloat();
+    return os;
 }
