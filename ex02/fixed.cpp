@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 14:30:06 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/08 15:15:02 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Fixed::~Fixed()
 }
 
 /**
- * Int Constructor - NEU!
+ * Int Constructor
  * 
  * Konvertiert int zu Fixed-Point
  * Formel: fixed = int × 2^8
@@ -70,7 +70,7 @@ Fixed::Fixed(const int n)
 }
 
 /**
- * Float Constructor - NEU!
+ * Float Constructor
  * 
  * Konvertiert float zu Fixed-Point
  * Formel: fixed = roundf(float × 2^8)
@@ -103,7 +103,7 @@ void Fixed::setStoredValue(int const raw)
 }
 
 /**
- * toFloat - NEU!
+ * toFloat
  * 
  * Konvertiert Fixed-Point zu float
  * Formel: float = fixed / 2^8
@@ -117,7 +117,7 @@ float Fixed::toFloat(void) const
 }
 
 /**
- * toInt - NEU!
+ * toInt
  * 
  * Konvertiert Fixed-Point zu int
  * Formel: int = fixed / 2^8 (Nachkommastellen abgeschnitten)
@@ -131,7 +131,7 @@ int Fixed::toInt(void) const
 }
 
 /**
- * operator<< - NEU!
+ * operator<<
  * 
  * Ermöglicht: std::cout << fixed_object
  * 
