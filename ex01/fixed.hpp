@@ -29,7 +29,7 @@ public:
     float   toFloat(void) const;
     int     toInt(void) const;
 };
-// Operator Overload (außerhalb der Klasse!)
+
 std::ostream& operator<<(std::ostream& os, const Fixed& f);
 
 #endif
