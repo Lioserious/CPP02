@@ -6,7 +6,7 @@
 #    By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 10:36:24 by lihrig            #+#    #+#              #
-#    Updated: 2026/02/08 11:32:53 by lihrig           ###   ########.fr        #
+#    Updated: 2026/02/19 12:34:58 by lihrig           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ all: header $(NAME)
 # Header-Banner beim Start
 header:
 	@echo "$(CYAN)╔════════════════════════════════════════════════════════════╗$(RESET)"
-	@echo "$(CYAN)║$(YELLOW)$(BOLD)                    COMPILING VIOLENCE                    $(CYAN)║$(RESET)"
+	@echo "$(CYAN)║$(YELLOW)$(BOLD)                    COMPILING Fixed                   $(CYAN)║$(RESET)"
 	@echo "$(CYAN)╚════════════════════════════════════════════════════════════╝$(RESET)"
 	@echo ""
 
