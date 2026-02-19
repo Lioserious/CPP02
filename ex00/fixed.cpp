@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/19 12:17:07 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/19 12:30:03 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,13 +148,13 @@ int Fixed::getRawBits(void) const
     return this->_value;
 }
 /**
- * setStoredValue - Setter Funktion
+ * setRawBits - Setter Funktion
  * 
  * Setzt den intern gespeicherten Fixed-Point Wert auf einen neuen Wert.
  * 
  * Wird aufgerufen bei:
- *   - a.setStoredValue(42);
- *   - a.setStoredValue(b.getRawBits());
+ *   - a.setRawBits(42);
+ *   - a.setRawBits(b.getRawBits());
  * 
  * Parameter:
  *   @param raw - Der neue Wert (int const = kann nicht verändert werden)
