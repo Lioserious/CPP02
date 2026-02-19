@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 12:11:35 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/19 12:13:32 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ Fixed& Fixed::operator=(const Fixed& other)
     std::cout << "Copy assignment operator call" << std::endl;
     if (this != &other)
     {
-        this->_value = other.getStoredValue();
+        this->_value = other.getRawBits();
     }
     return *this;
 }
@@ -142,7 +142,7 @@ Fixed::~Fixed()
  * 
  * Ausgabe: "getStoredValue member function call"
  */
-int Fixed::getStoredValue(void) const
+int Fixed::getRawBits(void) const
 {
     std::cout << "getStoredValue member function call" << std::endl;
     return this->_value;
@@ -173,7 +173,7 @@ int Fixed::getStoredValue(void) const
  * 
  * Keine Ausgabe (nur Wert setzen)
  */
-void Fixed::setStoredValue(int const raw)
+void Fixed::setRawBits(int const raw)
 {
     this->_value = raw;
 }

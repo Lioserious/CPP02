@@ -20,8 +20,8 @@ public:
     ~Fixed();
 
     // Member functions
-    int     getStoredValue(void) const;
-    void    setStoredValue(int const raw);
+    int     getRawBits(void) const;
+    void    setRawBits(int const raw);
 };
 
 #endif
