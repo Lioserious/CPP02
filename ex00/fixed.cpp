@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/19 12:13:32 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/19 12:17:07 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ Fixed::Fixed(const Fixed& other)
  *     * this = meine Adresse
  *     * &other = Adresse von other
  *     * Verhindert Probleme bei: a = a;
- *   - Kopiert _value mittels getStoredValue()
+ *   - Kopiert _value mittels getRawBits()
  *   - return *this = gibt Referenz auf sich selbst zurück
  * 
  * Ausgabe: "Copy assignment operator call"
@@ -119,32 +119,32 @@ Fixed::~Fixed()
     std::cout << "Destructor call" << std::endl;
 }
 /**
- * getStoredValue - Getter Funktion
+ * getRawBits - Getter Funktion
  * 
  * Gibt den intern gespeicherten Fixed-Point Wert zurück (nur lesen, nicht ändern).
  * 
  * Wird aufgerufen bei:
- *   - int x = a.getStoredValue();
- *   - std::cout << a.getStoredValue();
- *   - other._value = a.getStoredValue();
+ *   - int x = a.getRawBits();
+ *   - std::cout << a.getRawBits();
+ *   - other._value = a.getRawBits();
  * 
  * Rückgabe:
  *   @return int - Der gespeicherte Wert von _value
  * 
  * const-Qualifikation:
  *   - `const` am Ende bedeutet: Diese Funktion ändert das Objekt NICHT
- *   - Ermöglicht Aufruf auf const-Objekten: const Fixed a; a.getStoredValue();
+ *   - Ermöglicht Aufruf auf const-Objekten: const Fixed a; a.getRawBits();
  *   - Best Practice: Alle Getter sollten const sein
  * 
  * this->:
  *   - `this` = Pointer auf das aktuelle Objekt
  *   - `this->_value` = Zugriff auf Member (kann auch nur `_value` schreiben)
  * 
- * Ausgabe: "getStoredValue member function call"
+ * Ausgabe: "getRawBits member function call"
  */
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getStoredValue member function call" << std::endl;
+    std::cout << "getRawBits member function call" << std::endl;
     return this->_value;
 }
 /**
@@ -154,7 +154,7 @@ int Fixed::getRawBits(void) const
  * 
  * Wird aufgerufen bei:
  *   - a.setStoredValue(42);
- *   - a.setStoredValue(b.getStoredValue());
+ *   - a.setStoredValue(b.getRawBits());
  * 
  * Parameter:
  *   @param raw - Der neue Wert (int const = kann nicht verändert werden)
