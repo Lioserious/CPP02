@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 15:15:02 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/21 17:06:54 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  */
 Fixed::Fixed() : _value(0)
 {
-    std::cout << "Default constructor call" << std::endl;
+    std::cout << "Default constructor Aufruf" << std::endl;
 }
 
 /**
@@ -27,7 +27,7 @@ Fixed::Fixed() : _value(0)
  */
 Fixed::Fixed(const Fixed& other)
 {
-    std::cout << "Copy constructor call" << std::endl;
+    std::cout << "Copy constructor Aufruf" << std::endl;
     *this = other;
 }
 
@@ -37,7 +37,7 @@ Fixed::Fixed(const Fixed& other)
  */
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    std::cout << "Copy assignment operator call" << std::endl;
+    std::cout << "Copy assignment operator Aufruf" << std::endl;
     if (this != &other)
     {
         this->_value = other.getStoredValue();
@@ -51,7 +51,7 @@ Fixed& Fixed::operator=(const Fixed& other)
  */
 Fixed::~Fixed()
 {
-    std::cout << "Destructor call" << std::endl;
+    std::cout << "Destructor Aufruf" << std::endl;
 }
 
 /**
@@ -65,7 +65,7 @@ Fixed::~Fixed()
  */
 Fixed::Fixed(const int n)
 {
-    std::cout << "Int constructor call" << std::endl;
+    std::cout << "Int constructor Aufruf" << std::endl;
     this->_value = n << this->_fractionalBits;
 }
 
@@ -80,7 +80,7 @@ Fixed::Fixed(const int n)
  */
 Fixed::Fixed(const float f)
 {
-    std::cout << "Float constructor call" << std::endl;
+    std::cout << "Float constructor Aufruf" << std::endl;
     this->_value = roundf(f * (1 << this->_fractionalBits));
 }
 
