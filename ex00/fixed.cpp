@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 11:33:29 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/19 12:30:03 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/21 16:57:24 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
  * Initialisierungsliste `: _value(0)` setzt den Wert auf 0 BEVOR
  * der Funktionskörper ausgeführt wird.
  * 
- * Ausgabe: "Default constructor call"
+ * Ausgabe: "Default constructor aufruf"
  */
 Fixed::Fixed() : _value(0)
 {
-    std::cout << "Default constructor call" << std::endl;
+    std::cout << "Default constructor aufruf" << std::endl;
 }
 
 
@@ -50,11 +50,11 @@ Fixed::Fixed() : _value(0)
  *   - *this = das neue Objekt selbst
  *   - this = Pointer/Adresse des neuen Objekts
  * 
- * Ausgabe: "Copy constructor call"
+ * Ausgabe: "Copy constructor aufruf"
  */
 Fixed::Fixed(const Fixed& other)
 {
-    std::cout << "Copy constructor call" << std::endl;
+    std::cout << "Copy constructor aufruf" << std::endl;
     *this = other;
 }
 
@@ -82,11 +82,11 @@ Fixed::Fixed(const Fixed& other)
  *   - Kopiert _value mittels getRawBits()
  *   - return *this = gibt Referenz auf sich selbst zurück
  * 
- * Ausgabe: "Copy assignment operator call"
+ * Ausgabe: "Copy assignment operator aufruf"
  */
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    std::cout << "Copy assignment operator call" << std::endl;
+    std::cout << "Copy assignment operator aufruf" << std::endl;
     if (this != &other)
     {
         this->_value = other.getRawBits();
@@ -112,11 +112,11 @@ Fixed& Fixed::operator=(const Fixed& other)
  * Hier: Keine Aufräumarbeiten nötig (kein dynamischer Speicher),
  *       nur Debug-Ausgabe.
  * 
- * Ausgabe: "Destructor call"
+ * Ausgabe: "Destructor aufruf"
  */
 Fixed::~Fixed()
 {
-    std::cout << "Destructor call" << std::endl;
+    std::cout << "Destructor aufruf" << std::endl;
 }
 /**
  * getRawBits - Getter Funktion
@@ -140,11 +140,11 @@ Fixed::~Fixed()
  *   - `this` = Pointer auf das aktuelle Objekt
  *   - `this->_value` = Zugriff auf Member (kann auch nur `_value` schreiben)
  * 
- * Ausgabe: "getRawBits member function call"
+ * Ausgabe: "getRawBits member function aufruf"
  */
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function call" << std::endl;
+    std::cout << "getRawBits member function aufruf" << std::endl;
     return this->_value;
 }
 /**
