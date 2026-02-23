@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:41:08 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 15:02:02 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/23 18:28:10 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 /**
  * operator>
  * Vergleicht zwei Fixed-Point Zahlen
- * Vergleicht die rohen _value Werte (schneller als toFloat!)
+ * Vergleicht die rohen _value Werte
  */
 bool Fixed::operator>(const Fixed& rhs) const
 {

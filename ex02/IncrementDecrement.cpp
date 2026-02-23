@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:43:03 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/08 15:11:35 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/23 18:32:37 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * Pre-Increment (++a)
- * 1. Erhöhe Wert um ε (kleinste darstellbare Zahl = 1)
+ * 1. Erhöhe Wert um 1
  * 2. Gib Referenz zurück
  * 
  * ε = 1 im Raw-Format = 1/256 als Float = 0.00390625
@@ -28,7 +28,7 @@ Fixed& Fixed::operator++(void)
 /**
  * Post-Increment (a++)
  * 1. Speichere alten Wert
- * 2. Erhöhe Wert um ε
+ * 2. Erhöhe Wert um 1
  * 3. Gib alten Wert zurück
  * 
  * Dummy Parameter 'int' unterscheidet Pre von Post!
