@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:41:08 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/23 18:28:10 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/23 18:39:52 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,32 @@
  * Vergleicht zwei Fixed-Point Zahlen
  * Vergleicht die rohen _value Werte
  */
-bool Fixed::operator>(const Fixed& rhs) const
+bool Fixed::operator>(const Fixed& right) const
 {
-    return this->_value > rhs._value;
+    return this->_value > right._value;
 }
 
-bool Fixed::operator<(const Fixed& rhs) const
+bool Fixed::operator<(const Fixed& right) const
 {
-    return this->_value < rhs._value;
+    return this->_value < right._value;
 }
 
-bool Fixed::operator>=(const Fixed& rhs) const
+bool Fixed::operator>=(const Fixed& right) const
 {
-    return this->_value >= rhs._value;
+    return this->_value >= right._value;
 }
 
-bool Fixed::operator<=(const Fixed& rhs) const
+bool Fixed::operator<=(const Fixed& right) const
 {
-    return this->_value <= rhs._value;
+    return this->_value <= right._value;
 }
 
-bool Fixed::operator==(const Fixed& rhs) const
+bool Fixed::operator==(const Fixed& right) const
 {
-    return this->_value == rhs._value;
+    return this->_value == right._value;
 }
 
-bool Fixed::operator!=(const Fixed& rhs) const
+bool Fixed::operator!=(const Fixed& right) const
 {
-    return this->_value != rhs._value;
+    return this->_value != right._value;
 }

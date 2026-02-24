@@ -6,7 +6,7 @@
 /*   By: lihrig <lihrig@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:43:03 by lihrig            #+#    #+#             */
-/*   Updated: 2026/02/23 18:32:37 by lihrig           ###   ########.fr       */
+/*   Updated: 2026/02/24 14:20:18 by lihrig           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed& Fixed::operator++(void)
  * 2. Erhöhe Wert um 1
  * 3. Gib alten Wert zurück
  * 
- * Dummy Parameter 'int' unterscheidet Pre von Post!
+ * Dummy Parameter 'int' unterscheidet Pre von Post
  */
 Fixed Fixed::operator++(int)
 {
